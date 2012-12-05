@@ -1,0 +1,249 @@
+SET FOREIGN_KEY_CHECKS=0;
+SET UNIQUE_CHECKS=0;
+SET SQL_AUTO_IS_NULL=0;
+-- MySQL dump 10.11
+--
+-- Host: localhost    Database: db247449157
+-- ------------------------------------------------------
+-- Server version	5.0.81-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `actividades`
+--
+
+DROP TABLE IF EXISTS `actividades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actividades` (
+  `cactividad` tinyint(4) unsigned NOT NULL auto_increment,
+  `actividad` varchar(30) collate latin1_spanish_ci NOT NULL,
+  UNIQUE KEY `cactividad` (`cactividad`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actividades`
+--
+
+LOCK TABLES `actividades` WRITE;
+/*!40000 ALTER TABLE `actividades` DISABLE KEYS */;
+INSERT INTO `actividades` VALUES (1,'Comercios'),(2,'Salud y belleza'),(3,'Hosteleria'),(4,'Servicios Profesionales'),(5,'De particular a particular'),(6,'Agencias'),(7,'EducaciÃ³n'),(8,'Compra - Venta');
+/*!40000 ALTER TABLE `actividades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `actividadescp`
+--
+
+DROP TABLE IF EXISTS `actividadescp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `actividadescp` (
+  `cp1` varchar(2) collate latin1_spanish_ci NOT NULL,
+  `cp2` varchar(3) collate latin1_spanish_ci NOT NULL,
+  `cactividad` tinyint(4) unsigned NOT NULL,
+  KEY `cp` (`cp1`,`cp2`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `actividadescp`
+--
+
+LOCK TABLES `actividadescp` WRITE;
+/*!40000 ALTER TABLE `actividadescp` DISABLE KEYS */;
+INSERT INTO `actividadescp` VALUES ('46','017',2),('28','002',6),('28','003',7),('28','921',6),('28','002',1),('28','043',1),('28','300',4),('36','939',1),('33','013',1),('29','006',4),('28','018',8),('45','360',2),('46','100',7),('03','550',4),('29','009',4),('28','511',6),('35','004',4),('38','002',4),('28','500',1),('48','940',3);
+/*!40000 ALTER TABLE `actividadescp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entradasc`
+--
+
+DROP TABLE IF EXISTS `entradasc`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `entradasc` (
+  `centrada` bigint(20) unsigned NOT NULL,
+  `direccion` varchar(60) collate latin1_spanish_ci NOT NULL,
+  `telefono` varchar(9) collate latin1_spanish_ci default NULL,
+  `telefonom` varchar(9) collate latin1_spanish_ci default NULL,
+  `pweb` varchar(60) collate latin1_spanish_ci default NULL,
+  `descripcion` mediumtext collate latin1_spanish_ci,
+  `ofertas` mediumtext collate latin1_spanish_ci,
+  PRIMARY KEY  (`centrada`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entradasc`
+--
+
+LOCK TABLES `entradasc` WRITE;
+/*!40000 ALTER TABLE `entradasc` DISABLE KEYS */;
+INSERT INTO `entradasc` VALUES (1,'C/MarÃ­a de Molina, 12 bajo ','963575000','963586125','http://','   Alimentaci&oacute;n infantil.\r\nComplementos infantiles.\r\nDermocosm&eacute;tica.\r\nFitoter&aacute;pia (adelgazamiento, etc...).\r\nHigiene Bucodental (pastas dentr&iacute;ficas, adesivos de protesis, blanqueadores,...).\r\nChampus y geles dermatol&oacute;gicos.\r\nPreservativos.\r\nMaterial sanit&aacute;rio.\r\nTintes pelo (Sin Amoniaco).\r\nAnticelul&iacute;ticos.\r\nControl gratuito del peso del bebe.\r\nHigiene intima.\r\nHumidificadores, esterilizadores, robots de comida para el bebe,....\r\ny mucho mas, .........\r\n\r\n\r\n','   2 por 1 en preservativos CONTROL (2 cajas de 12 unidades al precio de 1) 8,95&euro;.\r\nDescuento de hasta un 20% en alimentaci&oacute;n infantil.\r\nDescuento de un 25% en productos MUSTELA.\r\nDescuento de un 10% en productos SESDERMA.\r\nSI NOS COMUNICA QUE HA ENCONTRADO UN PRECIO MAS BARATO, ESTUDIAREMOS LA POSIBILIDAD DE BAJARSELO.'),(2,'C/MarÃ­a de Molina, 12 bajo','963575000','963586125','http://','            Depilaci&oacute;n: - Cera (fr&iacute;&shy;a y t&iacute;&shy;bia) (ESPECIALISTAS EN HOMBRES)\r\n            - El&eacute;ctrica.\r\n            - Sonda.\r\n            - FOTODEPILACION.\r\nHigiene Facial: desde la mas barata y sencilla a la mas compleja (somos especialistas en tratamientos de ACNE)\r\nTratamientos corporales:\r\n            - Adelgazantes.\r\n            - Reductores.\r\n            - Reafirmantes.\r\n            - Gimnasia Pasiva.\r\n            - Fangoter&aacute;pia.\r\n            - Parafina.\r\n            - Diat&eacute;rmia.\r\n            - Drenaje linf&aacute;tico.\r\nQuiromasaje:- Relajante.\r\n            - Descontractuante.\r\n            - etc...\r\nPedicuras y Manicuras.\r\nSauna de Ozono.\r\nRAYOS UVA (controlados)\r\nY mucho mas,........\r\n','            Limpieza de cutis cl&aacute;sica (incluyendo depilaci&oacute;n de labio y cejas) 24&euro;\r\n\r\nPara las personas que nos informen que nos han visto en &eacute;lla, 50% de descuento de todos los tratamnientos corporales.\r\n\r\nBonos de 10, 20, 30 y 40 (puede ser compartido por 2 personas) sesiones de RAYOS UVA (Incluido sesi&oacute;n de rayos, mas ducha de hidromasaje).'),(3,'C/MarÃ­a de Molina, 12 bajo ','963575000','963586125','http://',' Rayos UVA controlados \r\nLogramos ponerte moreno de forma SANA.\r\nControl por fototipo de piel.\r\nLuego de la sesi&oacute;n (si quieres y sin ning&uacute;n coste a&ntilde;adido) puedes darte una ducha de hidromasaje (nosotros te proporcionamos el gel y la toalla.',' BONOS DE 10, 20, 30 Y 40 SESIONES (El de 40 puede ser compartido por 2 personas)'),(4,'C/MarÃ­a de Molina, 12 bajo ','963575000','963586125','http://','DermatologÃ­a.\r\nFisioterapeuta.\r\nDietista.\r\nFotodepilaciÃ³n.','FOTODEPILACION: Precios inmejorables, ACERCATE Y TE INFORMAREMOS\r\n\r\nDIETISTA: Consulta GRATUITA.'),(5,'C/MarÃ­a de Molina, 12 bajo ','963575000','963586125','http://',' Venta de productos de parafarmacia.\r\nAsesoramiento y formaci&oacute;n gratuito para personas que quieran abrir una PARAFARMACIA.\r\nSe sirven pedidos en todo el territorio nacional.\r\n',' Se debe consultar pues existen muchas y var&iacute;an.'),(7,'SAN JULIO, 7 BAJO','915635070','618321023','http://www.aconcagua.tv',' Especialistas en viajes a Australia, Estados Unidos, CanadÃ¡, Nueva Zelanda, Marruecos\r\n\r\nViajes expediciones\r\n\r\nDeporte de aventura : Rafting, Barrancos, hidrospeed, hÃ­pica, vuelos en avioneta\r\n\r\nMultiaventura nautica : Veleros, cursos de kite surf, surf, buceo\r\n\r\nTurismo fluvial para ir por canales en Francia, Italia, Escocia\r\n\r\nViajes esquÃ­ nieve\r\n\r\nPrecios especiales para grupos y colectivos\r\n\r\n',' '),(8,'','658127607','658127607','http://','   Profesor con gran experiencia de cÃ¡tedra.\r\nPone Ã©nfasis en aclaraciÃ³n de conceptos.\r\nResoluciÃ³n y explicaciÃ³n de problemas','   50 euros por hora de clase individual.\r\nPuede ser en el domicilio del alumno.\r\n(tambiÃ©n cleses en grupos).'),(9,'C/ NUEVA, 25','914880697','','http://www.larutadelasedaviajes.com',' Agencia de viajes especializada en larga distancia','Puedes solicitarlas a travÃ©s de nuestra web www.larutadelasedaviajes.com'),(10,'Calle Canillas 93','914150580','676999367','http://www.tintevalencia.es',' ',''),(11,' C/Utrillas 20','911424041','','http://',' Imagina un lugar donde...\r\n\r\n            el diseÃ±o es para todos\r\n\r\nEstudio de Muebles de Cocina',' Ahora es el mejor momento:\r\n\r\n      precio/calidad sin igual \r\n'),(12,'CTRA. DE ANDALUCIA, 112','630211356','630211356','http://',' trabajos de electricidad en general.obra nueva, averÃ­as y mantenimiento. vivienda, comercio o industrias. reformas y revisiones.\r\niluminaciÃ³n. encendido automÃ¡tico. detectores movimiento y\r\nfotocÃ©lulas. halÃ³genos. downligth. pantallas. fluorescentes. luz de\r\ncortesÃ­a. iluminaciÃ³n en armarios y encimeras de cocina. luces de\r\nemergencia.\r\nextractores. ventiladores. lÃ¡mparas-ventilador.\r\ninstalaciÃ³n de porteros automÃ¡ticos y videoporteros para chalets,\r\nviviendas, comercios o naves industriales. telefonÃ­a bÃ¡sica y lÃ­neas de red informÃ¡tica. antenas de tv y parabÃ³licas. decodificaciÃ³n satÃ©lite y tdt.\r\ntramitamos boletines elÃ©ctricos para viviendas y comercios.puestas a\r\ntierra. revisiones. si necesita reforzar la linea electrica para su aire\r\nacondicionado o sistema de calefaccion electrico. se le brinda la proteccion\r\nadecuada\r\n i n s t a l a c i o n e s  s o l a r e s  f o t o v o l t a i c a s  a i s l a d a s  y c o n e x i Ã³ n  a  r e d .\r\ne n e r g i a  s o l a r t e rmi c a  p a r a  a c s  y  c a l e f a c c i o n .\r\ns i s t ema s  e Ã³ l i c o s  p a r a  s umi n i s t r o  e l Ã© c t r i c o  a i s l a d o .\r\ni n s t a l a c i Ã³ n  d e  s i s t ema s h Ã­ b r i d o s  s o l a r - f o t o v o l t a i c o .\r\ni l umi n a c i o n  so l a r . b omb e o  s o l a r  d e  p o z o s .\r\ni n s t a l a c i o n  p a r a  v i e n d a s  f i n  d e  s ema n a  y  d e  o c u p a c i o n  c o n t i n u a \r\n','trabajos de electricidad en general.obra nueva, averÃ­as y mantenimiento. vivienda, comercio o industrias. reformas y revisiones.\r\niluminaciÃ³n. encendido automÃ¡tico. detectores movimiento y\r\nfotocÃ©lulas. halÃ³genos. downligth. pantallas. fluorescentes. luz de\r\ncortesÃ­a. iluminaciÃ³n en armarios y encimeras de cocina. luces de\r\nemergencia.\r\nextractores. ventiladores. lÃ¡mparas-ventilador.\r\ninstalaciÃ³n de porteros automÃ¡ticos y videoporteros para chalets,\r\nviviendas, comercios o naves industriales. telefonÃ­a bÃ¡sica y lÃ­neas de red informÃ¡tica. antenas de tv y parabÃ³licas. decodificaciÃ³n satÃ©lite y tdt.\r\ntramitamos boletines elÃ©ctricos para viviendas y comercios.puestas a\r\ntierra. revisiones. si necesita reforzar la linea electrica para su aire\r\nacondicionado o sistema de calefaccion electrico. se le brinda la proteccion\r\nadecuada\r\n i n s t a l a c i o n e s  s o l a r e s  f o t o v o l t a i c a s  a i s l a d a s  y c o n e x i Ã³ n  a  r e d .\r\ne n e r g i a  s o l a r t e rmi c a  p a r a  a c s  y  c a l e f a c c i o n .\r\ns i s t ema s  e Ã³ l i c o s  p a r a  s umi n i s t r o  e l Ã© c t r i c o  a i s l a d o .\r\ni n s t a l a c i Ã³ n  d e  s i s t ema s h Ã­ b r i d o s  s o l a r - f o t o v o l t a i c o .\r\ni l umi n a c i o n  so l a r . b omb e o  s o l a r  d e  p o z o s .\r\ni n s t a l a c i o n  p a r a  v i e n d a s  f i n  d e  s ema n a  y  d e  o c u p a c i o n  c o n t i n u a \r\n'),(13,'.','986305657','','http://bolsasmuybaratas.blogspot.com/','Necesitas una bolsa de papel para tu negocio.\r\nLas Bolsas de Papel mas baratas de EspaÃ±a.\r\nAqui podras encontrar las bolsas ecologicas mas economicas del mercado.\r\nLas mejores ofertas en bolsa de papel. Bolsa de Papel Kraft. \r\nBolsas reciclables y bolsas de papel reciclado.\r\n\r\nTEL.986305657 - TEL.986305657 - TEL.986305657\r\n\r\nhttp://bolsasmuybaratas.blogspot.com/\r\n\r\n','BOLSA PAPEL BARATAS - BOLSAS MAS BARATAS DE ESPAÃ‘A\r\nBOLSA PAPEL BARATAS - BOLSAS MAS BARATAS DE ESPAÃ‘A\r\nBOLSA PAPEL BARATAS - BOLSAS MAS BARATAS DE ESPAÃ‘A\r\n'),(15,'','636145517','636145517','http://www.pychiglas.com',' Tienda de estampacion de camisetas divertidas, personales, diseÃ±o de pegatinas,parches bordados termoadhesivos y complementos de moda',' Online'),(16,'','676697609','676697609','http://','  LICENCIAS DE APERTURAS-LICENCIAS DE OBRAS-PLANOS-PROYECTOS TECNICOS-TRAMITES TECNICOS-MALAGA Y ANDALUCIA.\r\n\r\nOficina tecnica de ingenieria y arquitectura realiza su proyecto tecnico a su medida, verifica las instalaciones-caracteristicas tecnicas de su local y se lo tramita ante los organismos competentes (Ayuntamiento, Junta de Andalucia, ministerios, etc.).\r\n\r\nLicencia de apertura, licencia de obra, planos, proyectos tecnicos, direcciones de obras, certificados, estudios acusticos, mediciones de ruidos, peritaciones, tasaciones y cualquier tipo de tramitacion tecnica.\r\n\r\nOficina tecnica formada por: Ingeniero, arquitecto, perito, aparejador y delineante.\r\n\r\nC/. Amarguillo s/n, l.c.  29006 Malaga.\r\n!!! Pida presupuesto sin compromiso !!!\r\n\r\nContacto: Manuel Granero.\r\nEmail:  c1752gm@copitima.com\r\nTfno.: 676 69 76 09\r\n',' PIDA PRESUPUESTO SIN COMPROMISO'),(17,'','','697309707','http://','Se Vende Miniportatil Toshiba con Windows XP de serie con garantia de 2 aÃ±os con El Corte Ingles 1 mes de uso.\r\nCaracterÃ­sticas tÃ©cnicas RAM: 1024 GB - Disco duro: 120 - 8.9 pulgadas - Procesador: Intel Atom - Windows XP Home Edition\r\nPara mas Informacion llamar al 697309707 seriedad ante todo.',''),(19,'','925150741','610941824','http://www.nutricionsanabienestar.com','  Somos especialistas en nutriciÃ³n celular desde 1980. Nuestros programas personalizados basados en la perfecta uniÃ³n de la mÃ¡s avanzada tecnologÃ­a y la sabidurÃ­a milenaria herbal china te ayudarÃ¡n a: recuperar tu peso ideal y mantenerlo para siempre. Modelar tu figura y conseguir tu talla ideal. Aumentar tu peso y tu masa muscular. Mejorar tu rendimiento y resultados deportivos. Cuidar y mimar tu piel y cabello Presupuestos para todos los bolsillos y garantÃ­a de satisfacciÃ³n a 30 dÃ­as: si no quedas satisfecho, te devolvemos tu dinero. Control y seguimiento personal gratuitos. Servimos a toda EspaÃ±a y a 70 paÃ­ses mÃ¡s. ConsÃºltanos sin compromiso en www.nutricionsanabienestar.com \r\nantonpaljj@hotmail.com \r\nEn los telÃ©fonos: MÃ³vil    +34 610 941 824\r\n                           Fijo        +34 925 150 741    \r\n',' '),(20,'','963543210','','http://www.uv.es/etse',' Las titulaciones adscritas a la ETSE son:\r\n- IngenierÃ­a InformÃ¡tica\r\n- IngenierÃ­a ElectrÃ³nica\r\n- IngenierÃ­a QuÃ­mica\r\n- IngenierÃ­a TÃ©cnica de TelecomunicaciÃ³n â€“ Sistemas ElectrÃ³nicos\r\n- IngenierÃ­a TÃ©cnica de TelecomunicaciÃ³n â€“ TelemÃ¡tica\r\n\r\nademÃ¡s de diversos masters oficiales y tÃ­tulos propios de postgrado.',' '),(21,'Avda. Vicent Andres Estelles s/n - 46100 Burjassot (Vcia.)','963543210','','http://www.uv.es/etse','La ETSE es un centro superior de formaciÃ³n universitaria que organiza las enseÃ±anzas de ingenierÃ­a que se imparten en la Universidad de Valencia.\r\n\r\nLas titulaciones adscritas actualmente a la ETSE son:\r\n* IngenierÃ­a InformÃ¡tica\r\n* IngenierÃ­a ElectrÃ³nica\r\n* IngenierÃ­a QuÃ­mica\r\n* IngenierÃ­a TÃ©cnica de TelecomunicaciÃ³n â€“ Sistemas ElectrÃ³nicos\r\n* IngenierÃ­a TÃ©cnica de TelecomunicaciÃ³n â€“ TelemÃ¡tica\r\n\r\nademÃ¡s de diversos masters oficiales y tÃ­tulos de postgrado propios.\r\n\r\nLa oferta de titulaciones se modificarÃ¡ en 2010 con la implantaciÃ³n de nuevos grados pendientes de verificaciÃ³n adaptados al Espacio Europeo de EducaciÃ³n Superior.','La ETSE, como centro de la Universitat de ValÃ¨ncia, se rige por precios pÃºblicos para todos sus estudios oficiales.\r\n'),(22,'','692687756','692687756','http://www.akratasaciones.es','  TASAMOS segÃºn ECO/805/2003, todo tipo de inmuebles y pericias judiciales por encargo de abogados, procuradores y otros profesionales, bancos y cajas de ahorro, financieras, aseguradoras, organismos pÃºblicos, particulares y empresas: agencias inmobiliarias, promotores y constructores, administradores de fincas, agentes de la propiedad inmobiliaria, gestorias, asesorias, etc.\r\nAKRA tasaciones es un Gabinete de  PERITOS JUDICIALES TASADORES VALORADORES INMOBILIARIOS, integrado por 7 peritos judiciales colegiados, cuyos dictÃ¡menes son plenamente Oficiales para Juzgados, Agencia Tributaria, URE`s de la Seguridad Social, subastas y registros pÃºblicos, aseguradoras, y bancos y cajas de ahorro de toda ESPAÃ‘A. \r\nEntre nuestros peritos contamos con un ingeniero, un arquitecto y un topÃ³grafo que cuentan con la titulaciÃ³n oficial tÃ©cnica superior y ejercicio profesional de mÃ¡s de 20 aÃ±os. \r\nTodos ademÃ¡s con experiencia desde el  2000 en la valoraciÃ³n de todo tipo de inmuebles rÃºsticos y urbanos.\r\n',' OFERTAS ESPECIALES para abogados, procuradores y otros profesionales, bancos y cajas de ahorro, financieras, aseguradoras, organismos pÃºblicos.\r\nTASAMOS â€œpisos y apartamentosâ€ en TODA ESPAÃ‘A por solo 150 euros/inmueble, trastero y plaza de garaje anejos a 35 euros cada uno (mas gastos, suplidos e IVA), a particulares y empresas'),(23,'Calle San QuintÃ­n, 43','652563291','652563291','http://www.fgingenieria.es',' Ingeniero Industrial Superior colegiado tramita su Licencia de Apertura, asÃ­ como licencias de obra, proyectos tÃ©cnicos, estudios acÃºsticos, y cualquier otro trÃ¡mite tÃ©cnico.\r\nEmitimos asÃ­ mismo certificados de seguridad necesarios para la Licencia de Apertura.\r\nRealizamos planos.\r\nLocales comerciales, particulares y empresas.\r\nAmplia experiencia, profesionalidad, seriedad y eficacia\r\nPida presupuesto sin compromiso, incluimos si lo desea entrega de la documentaciÃ³n el servicio de Licencia de Apertura \r\nContacto: Francisco GonzÃ¡lez\r\nEmail: malaga@fgingenieria.es\r\n\r\nWeb: http://www.fgingenieria.es\r\nTel: 652 56 32 91\r\n','LlÃ¡menos y pida presupuesto sin compromiso'),(24,'Agua, s/nÂº','911016886','675482455','http://www.agencias-transporte.com',' TRANSPORTE DE MOTOS EN TODA ESPAÃ‘A\r\nSIN EMBALAR Y ASEGURADAS\r\n\r\nServicio puerta a puerta\r\n\r\nTransportamos solo y exclusivamente motos\r\n\r\nPida presupuesto:\r\n\r\nwww.agencias-transporte.com \r\n\r\nclientes@agencias-transporte.com\r\n\r\nTlfs 91 101 68 86 â€“ 675482455 â€“ 902 28 28 04\r\n',''),(25,'Plaza Doctor Rafael OÂ´Shanahan, nÂº 6','928244935','667227741','http://www.gonzaleztorresabogados.com','Despacho Abogados Lawyers Advocats RechtsanwÃ¤lte  en las islas canarias, especializado en una atenciÃ³n jurÃ­dica integral a empresas, autÃ³nomos,  y particulares.\r\n','Consultas gratis por email.\r\nPida presupuesto sin compromiso.'),(26,'Plaza Doctor Rafael OÂ´Shanahan, nÂº 6','928297350','654380127','http://www.indemnizacionglobal.com','Despacho de abogados especializado en derecho del seguro, y gestiÃ³n y cobro de todo tipo de indemnizaciones por accidentes de trafico, y laborales, daÃ±os, negligencias y caidas.','Consultas gratuitas.\r\n\r\nNo cobramos si usted no cobra.'),(27,'Plaza Doctor Rafael OÂ´Shanahan, nÂº 6','928246472','654380127','http://www.testamento.es','Despacho de abogados especialistas en derecho sucesorio, liquidaciÃ³n de derechos hereditarios, testamentos y herencias.','Consultas gratis por email.\r\n\r\nPida presupuesto sin compromiso\r\n'),(28,'C/ Emilio Calzadilla, nÂº 1','922240409','600525989','http://www.gonzaleztorresabogados.com','Despacho de abogados lawyers especializado en asesoramiento integral a empresas y particulares en las islas canarias','Pida presupuesto sin compromiso'),(29,'','636803998','678904111','http://www.guiaempresas.info/webempresa.php?empresaID=241844',' Puertas AutomÃ¡ticas, Automatismos para puertas de Garaje y Cancelas. CCTV, Puertas de Garaje, Servicio de mantenimiento y reparaciones. Servicio 24 horas.','Solicite Presupuesto sin compromiso.'),(30,'','636803998','619102378','http://www.localempresa.com/webempresa.php?empresaID=13412&n','Elevadores verticales, Plataformas salvaescaleras, Sillas subescaleras, equipos portÃ¡tiles de subescaleras.\r\nServicio TÃ©cnico oficial.\r\nInstaladores Cualificados','SegÃºn Presupuesto.'),(31,'Paseo de la democracia, 47','','650958218','http://www.donbody.com','Todos los suplementos al mejor precio. Whey gold standard por solo 45.99, como esta muchas otras ofertas','100% Whey Gold Standard 45.99\r\nLiv52 15.00'),(32,'','917811333','607601844','http://','  Correduria de Seguros','  Varias dpendiendo de Ramo, Sector o Emtidad Aseguradora '),(33,'c/ Mendibile 42 - Leioa','944005427','','http://www.mendibilejauregia.com',' http://www.facebook.com/mendibile','');
+/*!40000 ALTER TABLE `entradasc` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `entradasp`
+--
+
+DROP TABLE IF EXISTS `entradasp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `entradasp` (
+  `codentrada` bigint(20) unsigned NOT NULL auto_increment,
+  `codusu` mediumint(20) unsigned NOT NULL,
+  `cp1` varchar(2) collate latin1_spanish_ci NOT NULL,
+  `cp2` varchar(3) collate latin1_spanish_ci NOT NULL,
+  `cactividad` tinyint(3) unsigned NOT NULL,
+  `csubactividad` int(10) unsigned NOT NULL,
+  `nombre` varchar(60) collate latin1_spanish_ci NOT NULL,
+  `bdes` varchar(60) collate latin1_spanish_ci default NULL,
+  `fechaex` date default NULL,
+  `pagado` tinyint(1) default NULL,
+  `resaltado` tinyint(1) NOT NULL default '0',
+  `borrado` tinyint(1) NOT NULL default '0',
+  UNIQUE KEY `codentrada` (`codentrada`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `entradasp`
+--
+
+LOCK TABLES `entradasp` WRITE;
+/*!40000 ALTER TABLE `entradasp` DISABLE KEYS */;
+INSERT INTO `entradasp` VALUES (1,2,'46','017',2,2,'FARMASTETIC','Venta de productos de parafarmacia',NULL,NULL,0,0),(2,2,'46','017',2,19,'FARMASTETIC','Gabinete de EstÃ©tica y Rayos UVA',NULL,NULL,0,0),(3,2,'46','017',2,20,'FARMASTETIC','Gabinete de EstÃ©tica y RAYOS UVA',NULL,NULL,0,0),(4,2,'46','017',2,44,'FARMASTETIC','Consultas MÃ©dicas.',NULL,NULL,0,0),(5,2,'46','017',2,40,'VITOBOGA, S.L.','Venta de productos de parafarmacia.',NULL,NULL,0,0),(7,3,'28','002',6,7,'VIAJES ACONCAGUA','VIAJES AVENTURA, Y NAUTICA',NULL,NULL,0,0),(8,1,'28','003',7,5,'Atanasio LleÃ³','Clases FÃ­sica; FisicoquÃ­mica de Farmacia',NULL,NULL,0,0),(9,4,'28','921',6,7,'LA RUTA DE LA SEDA VIAJES S.L.','PONEMOS EL MUNDO A TU ALCANCE',NULL,NULL,0,0),(10,6,'28','002',1,48,'Tintoreria Valencia','Limpieza en seco de todo tipo de prendas',NULL,NULL,0,0),(11,15,'28','043',1,9,'Alinna Cocinas','',NULL,NULL,0,0),(12,17,'28','300',4,28,'J.A.MARTIN','ELECTRICISTAS',NULL,NULL,0,0),(13,18,'36','939',1,16,'SERIPRINT','BOLSA PAPEL BARATAS - BOLSAS MAS BARATAS',NULL,NULL,0,0),(15,22,'33','013',1,50,'www.pychiglas.com','Camisetas, parches, pegatinas, complemen',NULL,NULL,0,0),(16,25,'29','006',4,51,'Manuel Granero','LICENCIA DE APERTURA-DE OBRA-PLANOS-PROY',NULL,NULL,0,0),(17,30,'28','018',8,30,'','Miniportatil Toshiba',NULL,NULL,0,0),(19,39,'45','360',2,21,'','HERBALIFE distribuidor independiente: ',NULL,NULL,0,0),(20,41,'46','008',7,55,'ETSE-UV Escuela de IngenierÃ­a - Universitat de ValÃ¨ncia','Escuela TÃ©cnica Superior de IngenierÃ­a',NULL,NULL,0,1),(21,41,'46','100',7,55,'ETSE-UV Escuela de IngenierÃ­a - Universitat de ValÃ¨ncia','Escola TÃ¨cnica Superior d\'Enginyeria',NULL,NULL,0,0),(22,42,'03','550',4,58,'AKRA tasaciones','tasaciones y pericias judiciales',NULL,NULL,0,0),(23,45,'29','009',4,59,'FG INGENIERIA','Estudio de intenieria',NULL,NULL,0,0),(24,46,'28','511',6,60,'AGENCIAS TRANSPORTE DE MOTOS','TRANSPORTE DE MOTOS EN ESPAÃ‘A',NULL,NULL,0,0),(25,47,'35','004',4,47,'GONZALEZ TORRES ABOGADOS SL','Abogados en las islas canarias',NULL,NULL,0,0),(26,48,'35','004',4,47,'INDEMNIZACION GLOBAL','Abogados para cobro de indemnizaciones',NULL,NULL,0,0),(27,49,'35','004',4,47,'TESTAMENTOS Y HERENCIAS','Abogados especialistas en herencias',NULL,NULL,0,0),(28,50,'38','002',4,47,'Gonzalez Torres Abogados SL','Despacho de abogado en Tenerife',NULL,NULL,0,0),(29,57,'29','006',4,61,'Access Control AndalucÃ­a. Soluciones de Accesibildad y Segu','Automatismos, Puertas AutomÃ¡ticas',NULL,NULL,0,0),(30,57,'29','006',4,62,'Access Control AndalucÃ­a','Movilidad y eliminaciÃ³n de Barreras Arqu',NULL,NULL,0,0),(31,58,'28','500',1,50,'DonBody','Tu tienda de suplementos deportivos',NULL,NULL,0,0),(32,60,'28','002',1,63,'CDA.VMENDEZ-M.RODRIGUEZ E.H.S.L.','Seguros en general para toda EspaÃ±a',NULL,NULL,0,0),(33,68,'48','940',3,3,'Restaurante Mendibile','http://www.facebook.com/mendibile',NULL,NULL,0,0);
+/*!40000 ALTER TABLE `entradasp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logusu`
+--
+
+DROP TABLE IF EXISTS `logusu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logusu` (
+  `codusu` mediumint(9) NOT NULL,
+  `fechah` datetime NOT NULL,
+  `ipdeusu` varchar(15) collate latin1_spanish_ci NOT NULL,
+  KEY `codusu` (`codusu`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logusu`
+--
+
+LOCK TABLES `logusu` WRITE;
+/*!40000 ALTER TABLE `logusu` DISABLE KEYS */;
+INSERT INTO `logusu` VALUES (25,'2009-03-16 13:02:57','79.150.149.9'),(28,'2009-04-24 07:14:47','79.109.153.112'),(28,'2009-04-24 07:15:25','79.109.153.112'),(29,'2009-05-10 19:50:47','83.56.246.59'),(30,'2009-05-25 18:47:17','88.28.15.229'),(31,'2009-07-10 22:44:04','190.56.55.109'),(33,'2009-07-18 21:11:36','190.41.193.59'),(35,'2009-08-01 01:21:31','190.40.106.86'),(36,'2009-08-04 04:15:37','201.143.219.47'),(37,'2009-08-07 08:43:44','190.208.65.126'),(38,'2009-08-12 14:32:38','68.199.219.148'),(39,'2009-08-20 21:03:54','79.151.160.144'),(40,'2009-08-26 17:35:11','166.210.99.23'),(41,'2009-09-01 12:03:57','147.156.13.191'),(41,'2009-09-02 10:10:03','147.156.13.191'),(42,'2009-09-22 10:57:54','79.150.74.51'),(43,'2009-10-30 15:48:03','200.112.51.51'),(44,'2009-11-02 18:40:12','84.120.63.193'),(44,'2009-11-02 18:43:26','84.120.63.193'),(45,'2009-12-19 00:53:14','85.57.36.61'),(15,'2010-01-07 16:13:33','194.69.224.8'),(46,'2010-01-30 13:18:46','84.122.85.173'),(47,'2010-01-30 13:43:58','212.40.252.31'),(48,'2010-01-30 13:47:37','212.40.252.31'),(49,'2010-01-30 13:51:58','212.40.252.31'),(50,'2010-01-30 13:55:31','212.40.252.31'),(51,'2010-02-11 00:44:36','190.134.170.146'),(52,'2010-02-17 19:46:53','190.26.132.177'),(53,'2010-03-14 21:58:23','201.236.246.96'),(54,'2010-03-28 07:32:20','190.20.147.255'),(55,'2010-04-24 18:36:22','190.127.78.130'),(55,'2010-04-24 18:55:03','190.127.78.130'),(56,'2010-05-12 06:21:35','190.102.243.89'),(56,'2010-05-12 06:21:36','190.102.243.89'),(57,'2010-05-19 08:47:25','79.149.30.132'),(58,'2010-06-07 10:53:55','83.37.39.247'),(60,'2010-06-30 00:26:12','217.130.73.143'),(60,'2010-06-30 00:29:07','217.130.73.143'),(60,'2010-06-30 00:33:10','217.130.73.143'),(61,'2010-07-01 02:10:51','95.16.70.101'),(63,'2010-07-18 15:38:10','83.49.228.28'),(64,'2010-07-21 10:40:11','77.209.78.165'),(65,'2010-07-23 12:59:03','89.130.177.228'),(67,'2010-07-31 17:14:43','189.235.115.125'),(68,'2010-08-01 15:49:13','88.28.21.196'),(1,'2010-08-09 22:36:38','87.223.151.204'),(1,'2010-08-09 22:36:55','87.223.151.204'),(1,'2010-08-09 22:57:47','87.223.151.204'),(0,'2010-08-18 19:48:58','213.9.130.10'),(0,'2010-08-20 18:44:00','83.50.81.193'),(0,'2010-08-31 18:57:45','87.223.85.193');
+/*!40000 ALTER TABLE `logusu` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subactividades`
+--
+
+DROP TABLE IF EXISTS `subactividades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subactividades` (
+  `csubactividad` int(10) unsigned NOT NULL auto_increment,
+  `cactividad` tinyint(4) unsigned NOT NULL,
+  `subactividad` varchar(30) collate latin1_spanish_ci NOT NULL,
+  UNIQUE KEY `cactividad` (`csubactividad`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subactividades`
+--
+
+LOCK TABLES `subactividades` WRITE;
+/*!40000 ALTER TABLE `subactividades` DISABLE KEYS */;
+INSERT INTO `subactividades` VALUES (1,1,'Ferreterias'),(2,2,'Parafarmacias'),(3,3,'Restaurantes'),(4,4,'Reformas'),(5,7,'Clases Particulares'),(6,1,'Panaderias'),(7,6,'Agencias de Viajes'),(8,6,'Agencias Inmobiliarias'),(9,1,'Cocinas'),(10,1,'Pastelerias'),(11,1,'Ultramarinos'),(12,1,'Supermercado'),(13,1,'Charcuteria'),(14,1,'Electricidad'),(15,1,'Electrodomesticos'),(16,1,'Ropa'),(17,1,'Boutique'),(18,2,'Farmacias'),(19,2,'Gabinete de estetica'),(20,2,'Rayos UVA'),(21,2,'Gimnasios'),(22,3,'Cafeterias'),(23,3,'Bares'),(24,3,'Bares de Copas'),(25,3,'Pubs'),(26,4,'Fontaneros'),(27,4,'Cerrajeros'),(28,4,'Electricistas'),(29,4,'Tecnico de Ordenadores'),(30,8,'Ordenadores'),(31,4,'Pintores'),(32,5,'Reparacion de Ordenadores'),(33,5,'Fontaneros'),(34,5,'Electricistas'),(36,5,'Servicio Domestico'),(37,5,'Babysitter'),(38,1,'Floristeria y Plantas'),(39,1,'Drogerias'),(40,1,'Mayoristas'),(41,2,'Mayoristas'),(42,3,'Mayoristas'),(43,6,'Mayoristas'),(44,2,'Consultas MÃ©dicas'),(45,1,'Mobiliario'),(46,4,'Gestorias'),(47,4,'Abogados'),(48,1,'tintoreria'),(49,5,'conductor'),(50,1,'Tienda Online'),(51,4,'Ingeniero, arquitecto'),(52,4,'Artista 3D'),(53,7,'Centros de enseñanza primaria'),(54,7,'Centros de enseñanza secundari'),(55,7,'Centros Universitarios'),(56,7,'Academias'),(57,7,'Guarderias'),(58,4,'tasaciones inmobiliarias'),(59,4,'LICENCIA DE APERTURA Y OBRAS'),(60,6,'TRANSPORTE DE MOTOS'),(61,4,'Automatismos y Control de Acce'),(62,4,'Ayudas TÃ©cnicas y Movilidad'),(63,1,'SEGUROS');
+/*!40000 ALTER TABLE `subactividades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `subactividadescp`
+--
+
+DROP TABLE IF EXISTS `subactividadescp`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subactividadescp` (
+  `cp1` varchar(2) collate latin1_spanish_ci NOT NULL,
+  `cp2` varchar(3) collate latin1_spanish_ci NOT NULL,
+  `cactividades` tinyint(4) unsigned NOT NULL,
+  `csubactividad` int(10) unsigned NOT NULL,
+  KEY `cp` (`cp1`,`cp2`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `subactividadescp`
+--
+
+LOCK TABLES `subactividadescp` WRITE;
+/*!40000 ALTER TABLE `subactividadescp` DISABLE KEYS */;
+INSERT INTO `subactividadescp` VALUES ('46','017',2,2),('46','017',2,19),('46','017',2,20),('46','017',2,44),('46','017',2,40),('28','002',6,7),('28','003',7,5),('28','921',6,7),('28','002',1,48),('28','043',1,9),('94','242',1,50),('28','300',4,28),('36','939',1,16),('33','013',1,50),('29','006',4,51),('28','018',8,30),('45','360',2,21),('46','100',7,55),('03','550',4,58),('29','009',4,59),('28','511',6,60),('35','004',4,47),('38','002',4,47),('29','006',4,61),('29','006',4,62),('28','500',1,50),('28','002',1,63),('48','940',3,3);
+/*!40000 ALTER TABLE `subactividadescp` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `usuarios`
+--
+
+DROP TABLE IF EXISTS `usuarios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `usuarios` (
+  `codusu` mediumint(20) unsigned NOT NULL auto_increment,
+  `email` varchar(40) collate latin1_spanish_ci NOT NULL,
+  `pass` varchar(40) collate latin1_spanish_ci NOT NULL,
+  `hash2` varchar(32) character set latin1 NOT NULL,
+  `p` varchar(40) character set latin1 NOT NULL,
+  `tipo` tinyint(4) unsigned NOT NULL,
+  UNIQUE KEY `codusu` (`codusu`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+LOCK TABLES `usuarios` WRITE;
+/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
+INSERT INTO `usuarios` VALUES (1,'plleoes@gmail.com','4e16953d8052c641a650695593cb99f78862bed6','5d9239c9731f19585beb89eff16be2a7','kkb2chcp',0),(2,'vitoboga@hotmail.com','8f3a25557d0f77940ce06cb57ff7343519141682','097935946af4e0217c31ed61519ad61f','farmastetic',0),(3,'rafael@aconcagua.tv','d93891191f6a024c2d3168ba98abbaacfa40f1e8','8603340fa3d20c6145b7f3263ea579c9','33504160',0),(4,'seda@larutadelasedaviajes.com','00276377be55cdc1fb38b51154a5c524c4622f06','a5e1ef38885dd3be3648dcb1ebdef7e0','seda',0),(5,'angelesn@terra.es','3dc9c098fac9992d46386a07cc51e6459a3e8d53','4fba7694d817f14004f3703dbbb4b939','axeiog11',0),(6,'info@tintevalencia.es','6c1e06292d8a2b5e6fac32aa753cd3dc55a74678','1760dde48b36be96ef754790cf7c8d69','madrid',0),(7,'lufegut@gmail.com','f359a04db7a64bb2a671b27b9045eb6673480acd','9d233d0523aa99acae8e952f6b77cc6c','1918',0),(8,'miaibanez@hotmail.com','1fe359873dcc79156ee6ae1fb8be0a4a16d0ed3d','b53bf271dba68871a7fdbd050e1edfec','Delaputamadre',0),(9,'marializeth.ceballos@hotmail.com','bc8141affcab64cc0eb96edfa472c07f65ecd516','b7d9c70470f2db4559dbd51026295558','Alejandro73',0),(10,'marializeth.ceballos@hotmail.com','6bbc1a4fe80b0eb33f3f0f351c5d614fd56b03a9','b7d9c70470f2db4559dbd51026295558','01979',0),(11,'mgomezbuceta@yahoo.es','228eb724de018b4f7c4484afdcc03ccdb291c2d2','14f8463e08f1025160f54dabb1530eda','76623435',0),(13,'luisenriqueber41@yahoo.es','da22db43f86a1c2f7d6a4bd768dc515463333237','63be88074f5b1ecf1373b4d7ef270ddd','251651',0),(14,'theboyfam_20@hotmail.com','cad3834e2c62250fd6ba583bb662e89212102839','81b372ef26a5777ff5b26b924ec7182e','jhon199420',0),(15,'juanjose.guillen@altran.es','163bdafa27dca28e66388cedc0fb1b4dc74e3668','2d76f589e258f7fc2121e563bfeaa425','sar3795',0),(16,'marisol1701@hotmail.com','481cf200a59ba9f7f2f723dff9a78a6ff9a9dca5','db614d040c6da04420a29bbde93f7ecb','20000000',0),(17,'martinsolarenergy@hotmail.com','3aef73bd20c7d893662e615fb43a26a00690d3a2','d2783707014418a2f0548fe261d86d2a','OSYFLAYTE',0),(18,'SERIPRINT@WANADOO.ES','4c93ab8c1d8a1b4797658d350f4b667709b803d8','7f308c1c824f84f1aeea887b3a56e642','521100',0),(19,'crl_lagolfa69@hotmail.com','233c89006a96d0d4ab524ccad4529321e45fe6be','05500257a8c10406505e81bf7c7c1bbb','657683091',0),(20,'galodoido303@yahoo.es','c621cdebba33622f3c0cb790ac1b0044ad3bef8f','d9134f236e5996a6508210007f85fc75','YVONNE0303',0),(21,'dani.ballesterosponcet@gmail.com','56815506e7e2f0a34f6ee891e4380d8700d26417','d392bc8f2dbc2ac09bfa3e6e70359d63','amarillo',0),(22,'info@pychiglas.com','6ed32edf4e92ab3c0a4dc6f90242953c344051ad','58455a6bdf5307f33c9e1402eb4d3530','sergio',0),(23,'jerecaja@hotmail.com','4b69ea19027fb2a72cf6475eb87e3ae66e4954c7','4e2f83b0554557f7e337b8ae868f986c','3328403',0),(24,'cristiandario29@hotmail.com','1559c02c131ecccc73babf194afa6243bc269e1b','65882645dbfc6acf7b37d782400ba70b','larva050977',0),(25,'c1752gm@copitima.com','d5837822a9384cba5426e1abd9134d13167cc860','18c27cbf724fcb9d600045de4d7100cb','348014',0),(26,'benitoboso@ahoo.es','9c450780e72bd8ee20eee3cc0f3afb78e7799307','5cc6216e37dedd9b4a308f9d0f0792fa','absurdo10',0),(27,'estudiantedaniela1990@yahoo.es','15bd23b8f8d6431ea6f0646c78706c0c092c3ee2','99e0ae2f28542ff24a226034b1ecee81','said958mint889d',0),(28,'eqanohuska@hotmail.com','1c2be2e38a2e7d295c65309b41fb20dbbc85fa2a','1aff409475732b954eb782ded7d43228','a2e1q267',0),(29,'tarik97@hotmail.es','2cfe534aa66900e81f6f20b02826b6132d2df8de','06985964de4be6b7ff74f1c345c7cb20','1997',0),(30,'jorgebernaola03@yahoo.es','afbfc5ba1901f994804904de833129e3b9ab4309','93798d1d77ed1dc67dc19de9f5960779','digimon',0),(31,'rbrauliorigoberto@yahoo.es','df4753fce6027192a323c365ebf330c788327fae','67af07a4c8d07ab91bf90fe595b31530','cangrejo',0),(32,'debi_aldeana96@hotmail.com','1534e2e5899ae4a8884c7cae7f11d8e714ff8caa','cbd0c7b0199cd1c40530fc5bbd5420af','-giovanni-96',0),(33,'SAGITA_254@hotmail.com','dee7bc6725b2ceab0a920a460d270fdc4688e74c','9179d8afa093f95097a9027e282c0887','MAITE',0),(34,'nao212@hotmail.com','c65b5f5117af08e01a9d16af3760d93ea73e3f92','02523fcb3bbc19e10f871500b033f771','24111998',0),(35,'arcangel_fercho18@hotmail.com','d040706f6c39fa487f79fe9c2f54cb866baba360','fa4a6802c10d8f7d0839ea18a0f89ef6','fercho',0),(36,'jesus_rbl32@live.com','fbaf04c403beb06e4338188aadb8bd1f0a49c5ad','5ff9934d0479178883b6922cfe2189c8','reformas',0),(37,'rjara99@gmail.com','d1d7bf42d7f6f7d6219e7f2fd2c7ce4d84a10716','0c4f29c27d9a143aeea115750269eba8','5dd6811e',0),(38,'graphic3ds@gmail.com','e4fe3bcf0f5dd4f8a2d09c756135a37a00855da1','ed6bcd4271c2801d35967237d32f2471','perros',0),(39,'antonpaljj@hotmail.com','5756d356512ee71d0e1615757d55e3a082071e44','5cc6815bd04914c74b6506163a995a9f','herbalif',0),(40,'alverto1010@hotmail.com','06b6f1e82fbf9872243ff3ff548e5ebc0282fde2','ec46932bf855392628589d0ebb47227e','alver',0),(41,'cerveron@uv.es','b32a37981061ad9a25611b5863241ae304d40e7f','83d478ed34dfcaddfd6bc5c3d4ee0ab4','e5tivella',0),(42,'akratasaciones@yahoo.es','798d289d5f1dd374848348e381f6a6da57e97f3d','31136c71e52acaa2c6899c33852e3e6a','@stafaz#',0),(43,'ayleen_pelolays@hotmail.com','62a0593adc2efa0bf3a371b6940d360e39c8d34d','7cd7685c084f7afc1e6df3c1d8d73928','ayleen',0),(44,'eri_xula_12@hotmail.com','f8cd64215abb0587561b6ecf981f1b3c7d5e3558','42879150017dbeed9b3c8ce082213bf8','662505584',0),(45,'malaga@fgingenieria.es','3742352ea5d78e0065b1e763983f5e8c2e213718','118034bfd2792efdc6def6bc30eefe5f','matildas',0),(46,'clientes@agencias-transporte.com','275db2606647297e94091ebf3eb6b3f6c4b2060a','8506c3c75097e79805a5fc3b7d97948c','sanfernando',0),(47,'pedro@gonzaleztorresabogados.com','7e39fbdc6cd302c47f7b60478fc8ffd0a7faa03b','02bc4d8293609b40fa8574eab3e5cb18','marisa100',0),(48,'consultas@indemnizacionglobal.com','cb5793d88a783ee82c05b70e803e217012251445','c1ffad9be0f750cc5b84c71d1e17282d','leocricia10',0),(49,'consultas@testamento.es','cb5793d88a783ee82c05b70e803e217012251445','ae880ac7ac93727065975c961fa8bea4','leocricia10',0),(50,'sandra@gonzaleztorresabogados.com','4eb1b07f77045ea27a2c384b959b5dc24a1762a0','078a7316f43e1243016a6c9f0f6bb351','sandra10',0),(51,'morelu2010@hotmail.com','2298625f2ba17912b286ad9afd8f089e460241b9','3015ac06a786e90adbb6c765294aae61','natalia',0),(52,'angeljennytrabajo@hotmail.com','abae854dceb7a01ab186d14e8e024480e917af31','fb75ed6631a8afaf6ba1daae0dd877bb','angela',0),(53,'j_gordo16@hotmail.com','851b09fd91ade9e428d34daa831c7f02957387ac','bf31e80a54d35d239f990579cf4f0aa1','aldibey',0),(54,'rastrillero_lxiss_loco@hotmail.com','cbe495bc042ba0043b6f8b462e7220958b5d7a51','f84a778fffab409d5753eec009b698b4','4511362',0),(55,'omara.04@hotmail.com','d9af198e8a157b66cc7eb5eb8c6a77e5c2748cc2','e0856395a537ae04261e044909a02ac4','geniusjesus',0),(56,'vanepa-28@hotmail.com','2ac9db908d4d8c94047b64505806e1eb94f64c8e','d8329829a481d35d250cad2d9d6e319f','15223612369',0),(57,'info.accesscontrolandalucia@gmail.com','df586a9c09af37c8650670e31cab1e2302d02785','9a7b0d42982c3b91973b7598370a9ad7','16021963',0),(58,'vichaunter@yahoo.es','e279e02360fcc33d70db6c32c23454bb466e2d55','44f889d801313b1f6893e5a6d6126491','google123',0),(59,'yoliribalda@hotmail.es','273a0c7bd3c679ba9a6f5d99078e36e85d02b952','90f8b48a94d028b564a5a7eddc753818','222222',0),(60,'VMENDEZ@TERRA.ES','3044d692f2cf67fb42003e7e344a7a2d6da18e51','1c54fbc96438b836ff4fef5b304ad20c','000113',0),(61,'produban@gmail.com','300645ee98d6c4e0f7759664b8893e35af6249cd','b2c5ae1c501f6c435bf8f9b94c816106','k3c0Ã±0k13r3s',0),(62,'lagaviotah@hotmail.com','0975406515b6e78a55be851381153fdb710bc729','506c1adec006ef92f39572f79f98dadb','06031497-3',0),(63,'gatexs2007@hotmail.com','8f60fc7ad2404721df64a75328ff590e7e9b8be2','62255d21a28b3952392fe59ae392577b','070218',0),(64,'josroi@hotmail.com','5575f56f831d147f94f0aec535b1c7f114e81e4c','111bc6262996ede9a6c5ae707fd4cb81','280879',0),(65,'javimen5@gmail.com','68a16645b25b3afe9bf7bb0db25491b4030fdbc1','d22cbee44d20bcdde5651707bd55215e','azkena',0),(66,'leticianascimento45@hotmail.com','c93503f56048a3eecdf2336eb7c5443d64e27d4e','d903a27b1e1a88efa364b95e4b61b42c','guillermemiguel2',0),(67,'rpf580212@msn.com','ba65fdad10a74555c597f0f42affc4aa0e27e7ae','5fe5d9273f885da09252eb4576d7ed17','rpf123',0),(68,'restaurantemendibile@gmail.com','8f7a30bbb43c3751716e94239fcec9cd251e4f3a','9d0f1234413846039c03447f84cc4f04','mendibile',0);
+/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-09-07  0:01:56
+SET SQL_AUTO_IS_NULL=1;
+SET FOREIGN_KEY_CHECKS=1;
+SET UNIQUE_CHECKS=1;

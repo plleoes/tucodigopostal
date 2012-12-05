@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js" ></script>
+<script language="javascript" type="text/javascript" src="jquery.cookie.js" ></script>
+<script language="javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAA3oKNGnx8_tC3UiQRQFXWPhT66f8XyYPgxUSxlqvEBrFWAXpM6BQvbK9ZUvsouTK2ZPOzm3T1IueHjA" type="text/javascript"></script>
+
+<script language="javascript" type="text/javascript">
+var geoc = new GClientGeocoder();
+function pos(c) {
+
+        
+        var latlng = new google.maps.LatLng(c.coords.latitude, c.coords.longitude);
+                $.cookie("lat", c.coords.latitude);
+                $.cookie("long", c.coords.longitude);
+      
+
+      if (latlng) {
+        geoc.getLocations(latlng, function(addresses) {
+            if(!addresses || addresses.Status.code != 200) {
+            location.href="./errorloc.php";
+          }
+          else {
+            address = addresses.Placemark[0];
+            console.log(address);
+            var pais = address.AddressDetails.Country.CountryName;
+            var cp = address.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
+            if (pais != "España") {
+                 location.href="./errorpais.php";
+            }
+            else {
+                  if (cp == "") {
+                        location.href="./errorcp.php";
+                  }
+                  else {
+                        location.href="./acp.php?c="+cp;
+                       }
+                 }
+          }
+        });
+      }
+}
+
+function err(msg) {
+    if(msg.TIMEOUT) {
+       navigator.geolocation.getCurrentPosition(pos, err,
+          {enableHighAccuracy:true});
+    } else {
+        location.href="./itcp.php";
+    }
+            
+        
+    }
+</script>
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+
+if (navigator.geolocation) {  
+				navigator.geolocation.getCurrentPosition(pos,err,{enableHighAccuracy:true});
+			} else {  
+				location.href="./itcp.php";  
+			}  
+
+
+</script>
+
+
+</body>
+</html>
+
+
